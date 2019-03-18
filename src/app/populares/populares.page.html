@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Populares</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+    <ion-list>
+
+         
+    <ion-item-sliding #item *ngFor="let negocio of negocios">
+      
+        <ion-item (click)="ver_negocio(negocio.nombre)">
+              <ion-label >
+                  <ion-text >
+                      <h2>{{negocio.nombre}}</h2>
+                  </ion-text>
+                  <ion-text >
+                      <p>{{negocio.Descripcion}}</p>
+                  </ion-text>
+                </ion-label>
+              <ion-icon name="arrow-forward" slot="end" ></ion-icon>
+        </ion-item> 
+    
+        <ion-item-options side="start">
+            <button ion-button (click)="add_Favorite(negocio.nombre)">
+              <ion-icon name="star">
+              </ion-icon>
+                Favorito
+            </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      
+      
+      <!-- <ion-item-sliding #item *ngFor="let negocio of negocios">
+        
+        <button ion-item (click)="ver_negocio(negocio.nombre)">
+              <ion-avatar item-start>
+                <img src="../../assets/imgs/SubRubros/search2.svg">
+              </ion-avatar>
+              <h2>{{negocio.nombre}}</h2>
+              <ion-badge color="warning" item-end slot="end">  {{negocio.valor}}</ion-badge>
+        </button> 
+    
+        <ion-item-options side="right">
+            <button ion-button (click)="add_Favorite(negocio)">
+              <ion-icon name="star">
+              </ion-icon>
+                Favorito
+            </button>
+        </ion-item-options>
+      </ion-item-sliding> -->
+    
+    </ion-list>
+  
+  </ion-content>
+  

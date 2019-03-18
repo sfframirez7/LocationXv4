@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button></ion-back-button>
+    <ion-title>sucursales</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background-color: #f4f4f4">
+
+    <ion-searchbar  (ionInput)="buscar($event)">      
+    </ion-searchbar>
+
+    <ion-card *ngFor="let sucursal of sucursalesList" >
+
+       <h1 text-center> {{sucursal.Nombre}} </h1>
+        <ion-item text-wrap>
+            <ion-icon name="train" item-start large></ion-icon>
+          <h2>Dirección:</h2>
+          <p> {{sucursal.Direccion}} </p>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="call" item-start large ></ion-icon>
+            <h2>Teléfono:</h2>
+            <a href="tel:{{sucursal.Telefono}}"> {{sucursal.Telefono}}</a>
+        </ion-item>
+        
+        <ion-item>
+        
+          <h2>
+              Horarios: 
+          </h2>
+
+        </ion-item>
+
+        <ion-item>
+            <span item-start>Lunes A Juves: </span>
+            <span item-start>{{sucursal.Horarios.LunesAViernes}}</span>
+        </ion-item>
+        <ion-item>
+            <span item-start>Viernes: </span>
+            <span item-start>{{sucursal.Horarios.Viernes}}</span>
+        </ion-item>
+        <ion-item>
+            <span item-start>Sábados: </span>
+            <span item-start>{{sucursal.Horarios.Sabados}}</span>
+        </ion-item>
+        <ion-item>
+            <span item-start>Domingos: </span>
+            <span item-start>{{sucursal.Horarios.Domingos}}</span>
+        </ion-item>        
+
+        <ion-item *ngIf="sucursal.Cordenadas">
+          <!-- <span item-start>18 min</span>
+          <span item-start>(2.6 mi)</span>
+         -->
+         <button ion-button icon-start block large color="light" (click)="ver_mapa(sucursal)">
+            <ion-icon name="navigate"></ion-icon>
+            <!-- <ion-icon name="send"></ion-icon> -->
+            Mapa
+          </button>
+          <!-- <button ion-button icon-start clear item-end (click)="ver_mapa(sucursal)">
+            <ion-icon name="navigate"></ion-icon>
+            Ver
+          </button> -->
+        </ion-item>
+      
+      </ion-card>
+</ion-content>

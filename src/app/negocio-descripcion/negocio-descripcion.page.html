@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button></ion-back-button>
+      <ion-buttons *ngIf="!hayError" slot="end" (click)="AgregarQuitarFavorito()">
+          <ion-button >
+            <ion-icon  name="star" [id]="Favorito"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title>{{entidad.Nombre || Title}}  </ion-title>
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="hayError" style="background-color: #f4f4f4">
+    <ion-grid  style="height: 90%;">
+        <ion-row justify-content-center align-items-center style="height: 90%">
+            <ion-col col-12 style="color: gray">
+                <ion-card>
+  
+                    <ion-card-header>
+                        Lo sentimos!
+                    </ion-card-header>
+                  
+                    <ion-card-content>
+                        Al parecer algo ha salido mal
+                    </ion-card-content>
+                  
+                  </ion-card>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>
+
+
+<ion-content style="background-color: #f4f4f4" *ngIf="!hayError" >
+
+  <ion-card>      
+
+        <ion-card-content>
+          <ion-card-title text-center>
+            <h1>
+                {{entidad.Nombre}}
+            </h1>  
+            </ion-card-title>
+              <h2 text-center>
+                {{entidad.Lema}}
+
+              </h2>
+            
+          <ion-list text-wrap>
+
+            <ion-item >
+                <ion-icon name="subway" item-start style="color:#17a2b8"></ion-icon>
+                
+                {{entidad.Direccion}}
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="call" item-start style="color:#17a2b8"></ion-icon>
+                  <a href="tel:{{entidad.Telefono}}"> {{entidad.Telefono}}</a>
+                  
+            </ion-item>
+              <ion-item>
+                <ion-icon name="mail" item-start style="color:#17a2b8"></ion-icon>
+                  {{entidad.Correo}}
+              </ion-item>
+              <ion-item *ngIf="entidad.ServicioADomicilio">
+                  <ion-icon name="home" item-start style="color:#17a2b8"></ion-icon>
+                    Servicio A Domicilio
+                    <ion-icon name="checkmark" color="secondary" item-end style="font-size: 4rem;"></ion-icon>
+              </ion-item>
+
+              <ion-item>
+                  <ion-icon name="compass" item-start style="color:#17a2b8"></ion-icon>
+                    {{entidad.PaginaWeb}}
+              </ion-item>
+
+              <ion-item>
+                  <ion-icon name="briefcase" item-start style="color:#17a2b8"></ion-icon>
+                    {{entidad.Negocio}}
+              </ion-item>
+
+              <ion-item>
+                <ion-icon name="eye" item-start style="color:#17a2b8"></ion-icon>
+                  Visitas : {{totalVisitas}}
+            </ion-item>
+            <ion-item>
+              <ion-icon name="star" item-start style="color:#17a2b8"></ion-icon>
+                Favoritos : {{totalFavoritos}}
+            </ion-item>                          
+
+            
+            <ion-button *ngIf="tieneSucursales" expand="block" block large color="light" (click)="ver_sucursales()">
+                <ion-icon slot="start" name="home"></ion-icon>
+                Sucursales
+              </ion-button>
+
+            <ion-button *ngIf="mostrarMapa"  expand="block" color="light" (click)="ver_mapa()">
+              <ion-icon slot="start" name="send"></ion-icon>
+                Mapa
+            </ion-button>
+
+          </ion-list>      
+
+            <p padding>
+                {{entidad.Descripcion}}
+            </p>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+
+
+    <ion-searchbar (ionInput)="getItems($event)">      
+      </ion-searchbar>
+    
+    
+      <ion-list>
+
+          
+    <ion-item-sliding #item *ngFor="let negocio of negocios">
+      
+        <ion-item (click)="ver_negocio(negocio)">
+              <ion-label >
+                  <ion-text >
+                      <h2>{{negocio}}</h2>
+                  </ion-text>
+                  <ion-text >
+                      <p>{{negocio.Descripcion}}</p>
+                  </ion-text>
+                </ion-label>
+              <ion-icon name="arrow-forward" slot="end" ></ion-icon>
+        </ion-item> 
+    
+        <ion-item-options side="start">
+            <button ion-button (click)="add_Favorite(negocio)">
+              <ion-icon name="star">
+              </ion-icon>
+                Favorito
+            </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      
+      </ion-list>
+    
+
+</ion-content>

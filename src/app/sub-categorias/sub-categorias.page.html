@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button></ion-back-button>
+    <ion-title> {{subRubroNombre | uppercase}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background-color: #f4f4f4">
+   
+    <ion-list padding-top>
+  
+      <ion-item  *ngFor="let subRubro of subRubros" (click)="ver_negocio(subRubro)">
+          <ion-label >
+            <ion-text >
+              <h2>{{subRubro.Nombre}}</h2>
+            </ion-text>
+          </ion-label>
+          <ion-icon name="arrow-forward" slot="end" ></ion-icon>
+      </ion-item> 
+
+  </ion-list>
+</ion-content>

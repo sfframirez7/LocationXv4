@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      LocationX
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style=" background-color: #f4f4f4;">
+
+  <h2 text-center style="color: gray;">
+    ¿Que estas buscando...?
+  </h2>
+
+  <ion-grid no-padding >
+      <ion-row justify-content-center align-items-center>
+        <ion-col *ngFor="let rubro of rubros" (click)="ver_rubro(rubro)" size="12" sizeMd="6" sizeLg="4"  col-6 style="color: gray; margin-top: 10px;" justify-content-center align-items-center>
+          
+          <ion-card justify-content-center align-items-center style="padding-top: 10px; margin:0px 10px 0px 10px">
+                <img center src="../../assets/imgs/Rubros/{{rubro.UrlImagen}}" style="width: 5rem; margin: 0 auto"/> 
+                <ion-card-content style="text-align: center; color: gray">
+                    {{rubro.Nombre}}
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+</ion-content>
