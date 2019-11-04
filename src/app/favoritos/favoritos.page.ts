@@ -48,6 +48,10 @@ export class FavoritosPage implements OnInit {
     this.router.navigate(['/negocio-descripcion', Negocio])
   }
 
+  getItems($event)
+  {
+    
+  }
 
 
 }

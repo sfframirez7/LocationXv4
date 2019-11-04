@@ -28,9 +28,7 @@ export class NegociosPage implements OnInit {
     private route : ActivatedRoute
   ) 
   { 
-    // this.subRubroNombre = navParams.get('subRubro')
     this.subRubroNombre = this.route.snapshot.paramMap.get('NombreSubRubro');
-    console.log(this.subRubroNombre);
 
   }
   
@@ -41,8 +39,6 @@ export class NegociosPage implements OnInit {
 
   ver_negocio(Negocio)
   {
-    console.log(Negocio);
-    // this.navCtrl.push(this.negocioDescripcionPage,{negocio:negocio.Entidad});
     this.router.navigate(['/negocio-descripcion', Negocio])
 
   }
@@ -59,8 +55,6 @@ export class NegociosPage implements OnInit {
       terminoBusqueda = ""
     }
 
-    
-
       if (!terminoBusqueda && !this.ciudadSelected)
           return;
       
@@ -70,8 +64,8 @@ export class NegociosPage implements OnInit {
         if(v.Nombre && terminoBusqueda) 
         {
           if ((v.Nombre.toLowerCase().indexOf(terminoBusqueda.toLowerCase()) > -1
-           || v.Descripcion.toLowerCase().indexOf(terminoBusqueda.toLowerCase()) > -1)
-           && this.filtrarCiudad(v.Ciudades)     ) 
+           || v.Descripcion.toLowerCase().indexOf(terminoBusqueda.toLowerCase()) > -1) )
+          //  && this.filtrarCiudad(v.Ciudades)     ) 
           {
             return true;
           }
@@ -156,7 +150,6 @@ export class NegociosPage implements OnInit {
 
   private filtrarCiudad(ciudades)
   {
-    
     var seEncontro = false;
     Object.keys(ciudades).forEach(ciudad =>{
        if(!this.ciudadSelected)

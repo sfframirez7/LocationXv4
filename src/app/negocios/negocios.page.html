@@ -34,7 +34,7 @@
       
     <ion-list>
   
-      <ion-list *ngIf="hayRegistrosParaMostrar" style="margin: -1px 0 10px;">
+      <!-- <ion-list *ngIf="hayRegistrosParaMostrar" style="margin: -1px 0 10px;">
         <ion-item>
           <ion-label>Ciudad</ion-label>
           <ion-select [(ngModel)]="ciudadSelected" (ionChange)="buscar($event)">
@@ -42,7 +42,7 @@
             <ion-select-option *ngFor="let ciudad of ciudades" value="{{ciudad.Nombre}}">{{ciudad.Nombre}}</ion-select-option>
           </ion-select>
         </ion-item>
-      </ion-list>
+      </ion-list> -->
   
   
     <ion-item-sliding #item *ngFor="let negocio of entidadesList">
@@ -59,14 +59,14 @@
             <ion-icon name="arrow-forward" slot="end" ></ion-icon>
       </ion-item> 
   
-      <ion-item-options side="start">
+      <!-- <ion-item-options side="start">
           <button ion-button (click)="add_Favorite(negocio.Nombre)">
             <ion-icon name="star">
             </ion-icon>
               Favorito
           </button>
-      </ion-item-options>
-    </ion-item-sliding>
+      </ion-item-options> -->
+     </ion-item-sliding> 
   
   </ion-list>
   

@@ -15,6 +15,7 @@ export class NegocioDescripcionPage implements OnInit {
   negocio:any;
   favoritos:any;
   EntidadesGuardadas:any;
+  Title = "Tittle"
 
   totalFavoritos: number;
   totalVisitas: number;  
@@ -40,6 +41,7 @@ export class NegocioDescripcionPage implements OnInit {
     this.negocio = this.route.snapshot.paramMap.get('Negocio')
     
     
+    
   }
 
   ngOnInit() {
@@ -50,6 +52,8 @@ export class NegocioDescripcionPage implements OnInit {
       this.hayError = true;
       return;
     }
+
+    this.negocio = this.negocio.replace(/\s/g,'')
 
     this.MostrarEntidad();
     this.MostrarSucursales();
